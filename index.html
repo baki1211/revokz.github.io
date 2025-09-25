@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revokzs Shop - Oyun Hesaplarının En Güvenli Adresi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #2a2a2a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ff6b35;
+            border: 1px solid #ff6b35;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .balance-info {
+            color: #10b981;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 6rem 0;
+            background: url('https://images.unsplash.com/photo-1614732414444-096e5f1122d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMHBsYW5ldHN8ZW58MHx8fGJsYWNrfDE3NTg3NDgwOTh8MA&ixlib=rb-4.1.0&q=85') center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Listings Section */
+        .listings-section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .listing-card {
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .listing-card:hover {
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.15);
+        }
+
+        .listing-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .listing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .listing-card:hover .listing-image img {
+            transform: scale(1.05);
+        }
+
+        .listing-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .listing-content {
+            padding: 1.5rem;
+        }
+
+        .listing-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .listing-description {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .listing-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .listing-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .listing-game {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .listing-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-icon {
+            padding: 0.5rem;
+            min-width: auto;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #374151;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: #4b5563;
+            border: 1px solid #6b7280;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Messages Modal - WhatsApp Style */
+        .messages-modal-content {
+            max-width: 900px;
+            width: 95vw;
+            height: 600px;
+            padding: 0;
+            display: flex;
+            background: #1f2937;
+        }
+
+        .chat-sidebar {
+            width: 300px;
+            background: #111827;
+            border-right: 1px solid #374151;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            border-bottom: 1px solid #374151;
+            background: #1f2937;
+        }
+
+        .chat-header h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chat-search {
+            padding: 0.5rem;
+            background: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 6px;
+            color: white;
+            width: 100%;
+        }
+
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem 0;
+        }
+
+        .chat-item {
+            padding: 1rem;
+            border-bottom: 1px solid #374151;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-item:hover {
+            background: #374151;
+        }
+
+        .chat-item.active {
+            background: #ff6b35;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+        }
+
+        .chat-info {
+            flex: 1;
+        }
+
+        .chat-name {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .chat-last-message {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #1f2937;
+        }
+
+        .chat-main-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #374151;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-main-header h4 {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .message.sent {
+            background: #ff6b35;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.received {
+            background: #374151;
+            color: white;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        .chat-input-area {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #374151;
+            background: #111827;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 25px;
+            color: white;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: #ff6b35;
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .no-chat-selected {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            text-align: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .messages-modal-content {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .chat-sidebar {
+                width: 100%;
+                display: none;
+            }
+
+            .chat-sidebar.mobile-show {
+                display: flex;
+            }
+
+            .chat-main {
+                display: none;
+            }
+
+            .chat-main.mobile-show {
+                display: flex;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse-orange {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+            }
+        }
+
+        .pulse-orange {
+            animation: pulse-orange 2s infinite;
+        }
+
+        /* Hidden class for dynamic content */
+        .hidden {
+            display: none !important;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #d1d5db;
+        }
+
+        /* Empty state */
+        .empty-chat-list {
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Online status indicator */
+        .online-indicator {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            border: 2px solid #111827;
+        }
+
+        .chat-avatar {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                    <h1 class="logo">Revokzs Shop</h1>
+                    <button id="messagesBtn" class="btn btn-outline hidden">💬 Mesajlaşma</button>
+                </div>
+                
+                <div class="nav-buttons">
+                    <div id="guestButtons">
+                        <button id="registerBtn" class="btn btn-outline">Kayıt Ol</button>
+                        <button id="loginBtn" class="btn btn-primary">Giriş Yap</button>
+                    </div>
+                    
+                    <div id="userButtons" class="hidden">
+                        <div class="balance-info">Bakiye: <span id="userBalance">0.00</span> TL</div>
+                        <button id="balanceBtn" class="btn btn-green">Bakiye Yükle</button>
+                        <button id="createListingBtn" class="btn btn-primary">İlan Ver</button>
+                        <div class="user-info">
+                            <span>Hoş geldin, <span id="userName"></span></span>
+                            <button id="logoutBtn" class="btn btn-outline">Çıkış</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Oyun Hesaplarının En Güvenli Adresi</h1>
+                <p>
+                    Valorant, CS2, Fortnite, League of Legends ve daha fazlası...<br>
+                    En iyi fiyatlarla premium oyun hesapları!
+                </p>
+                <button id="heroBtn" class="btn btn-primary btn-large pulse-orange">🎮 İlanları Keşfet</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listings Section -->
+    <section class="listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🔥 Öne Çıkan İlanlar</h2>
+                <button id="revokzsShopBtn" class="btn btn-primary hidden">Revokzs Shop</button>
+            </div>
+            
+            <div class="listings-grid" id="listingsGrid">
+                <!-- Sample Listings -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd" alt="Premium Valorant Hesabı">
+                        <div class="listing-badge">VALORANT</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">Premium Valorant Hesabı</h3>
+                        <p class="listing-description">100+ skin içeren özel hesap, tüm agentler açık. Çok nadir skinler mevcut!</p>
+                        <div class="listing-details">
+                            <div class="listing-price">299.99 TL</div>
+                            <div class="listing-game">valorant</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575" alt="CS2 Knife Koleksiyonu">
+                        <div class="listing-badge">CS2</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">CS2 Knife Koleksiyonu</h3>
+                        <p class="listing-description">Nadir bıçak skinleri paketi - Karambit, Butterfly ve daha fazlası</p>
+                        <div class="listing-details">
+                            <div class="listing-price">599.99 TL</div>
+                            <div class="listing-game">cs2</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1613160717888-faa82cdb8a94" alt="League of Legends VIP Hesabı">
+                        <div class="listing-badge">LOL</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">League of Legends VIP Hesabı</h3>
+                        <p class="listing-description">Tüm championlar + 100+ skin + prestige skinleri</p>
+                        <div class="listing-details">
+                            <div class="listing-price">189.99 TL</div>
+                            <div class="listing-game">lol</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1589241062272-c0a000072dfa" alt="Fortnite Battle Pass">
+                        <div class="listing-badge">FORTNITE</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">Fortnite Battle Pass Koleksiyonu</h3>
+                        <p class="listing-description">Tüm sezon battle pass'leri tamamlanmış, nadir skinler</p>
+                        <div class="listing-details">
+                            <div class="listing-price">149.99 TL</div>
+                            <div class="listing-game">fortnite</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575" alt="PUBG Mobile UC Paketi">
+                        <div class="listing-badge">PUBG</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">PUBG Mobile UC Paketi</h3>
+                        <p class="listing-description">60 180 Skin Hesap Adam Yapmışız gel ve champ ol set Satın al</p>
+                        <div class="listing-details">
+                            <div class="listing-price">79.99 TL</div>
+                            <div class="listing-game">pubg</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd" alt="Apex Legends Hesabı">
+                        <div class="listing-badge">APEX</div>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">Apex Legends Premium Hesabı</h3>
+                        <p class="listing-description">Tüm karakterler açık, nadir skin koleksiyonu mevcut</p>
+                        <div class="listing-details">
+                            <div class="listing-price">249.99 TL</div>
+                            <div class="listing-game">apex</div>
+                        </div>
+                        <div class="listing-actions">
+                            <button class="btn btn-green btn-small">💳 Satın Al</button>
+                            <button class="btn btn-outline btn-small btn-icon">💬</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+            <h2 class="modal-title" id="authModalTitle">Giriş Yap</h2>
+            <form id="authForm">
+                <div id="registerFields" class="hidden">
+                    <div class="form-group">
+                        <input type="text" id="nameInput" class="form-input" placeholder="İsim" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="usernameInput" class="form-input" placeholder="Kullanıcı Adı" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="emailInput" class="form-input" placeholder="Email" required>
+                    </div>
+                </div>
+                <div id="loginFields">
+                    <div class="form-group">
+                        <input type="text" id="loginInput" class="form-input" placeholder="Email veya Kullanıcı Adı" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="passwordInput" class="form-input" placeholder="Şifre" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Giriş Yap</button>
+                <button type="button" id="switchAuthMode" class="btn btn-outline" style="width: 100%;">
+                    Hesabın yok mu? Kayıt ol
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Balance Modal -->
+    <div id="balanceModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('balanceModal')">&times;</button>
+            <h2 class="modal-title">Bakiye Yükle</h2>
+            <form id="balanceForm">
+                <div class="form-group">
+                    <input type="number" id="amountInput" class="form-input" placeholder="Yüklenecek Tutar (TL)" min="10" required>
+                </div>
+                <div class="form-group">
+                    <select id="paymentMethodSelect" class="form-select" required>
+                        <option value="">Ödeme Yöntemi Seçin</option>
+                        <option value="Garanti BBVA">Garanti BBVA</option>
+                        <option value="Papara">Papara</option>
+                        <option value="Tosla">Tosla</option>
+                        <option value="Enpara">Enpara</option>
+                        <option value="İninal">İninal</option>
+                        <option value="Ziraat Bankası">Ziraat Bankası</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Ödemeye Geç</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('paymentModal')">&times;</button>
+            <h2 class="modal-title">Kart Bilgileri</h2>
+            <form id="paymentForm">
+                <div class="form-group">
+                    <input type="text" id="cardNumberInput" class="form-input" placeholder="Kart Numarası" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <input type="text" id="expiryInput" class="form-input" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="cvvInput" class="form-input" placeholder="CVV" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="cardNameInput" class="form-input" placeholder="Kart Üzerindeki İsim" required>
+                </div>
+                <div style="background: #4b5563; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                    <p>Tutar: <span style="color: #10b981; font-weight: bold;" id="paymentAmount">0 TL</span></p>
+                    <p>Ödeme Yöntemi: <span style="color: #3b82f6;" id="paymentMethodName">-</span></p>
+                </div>
+                <button type="submit" class="btn btn-green" style="width: 100%;">Ödemeyi Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Create Listing Modal -->
+    <div id="createListingModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('createListingModal')">&times;</button>
+            <h2 class="modal-title">Yeni İlan Oluştur</h2>
+            <form id="createListingForm">
+                <div class="form-group">
+                    <input type="text" id="listingTitleInput" class="form-input" placeholder="İlan Başlığı" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="listingDescriptionInput" class="form-textarea" placeholder="İlan Açıklaması" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="listingPriceInput" class="form-input" placeholder="Fiyat (TL)" min="10" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" id="listingImageInput" class="form-input" placeholder="Fotoğraf URL'si">
+                </div>
+                <div class="form-group">
+                    <select id="gameTypeSelect" class="form-select" required>
+                        <option value="">Oyun Türü Seçin</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="fortnite">Fortnite</option>
+                        <option value="cs2">Counter-Strike 2</option>
+                        <option value="lol">League of Legends</option>
+                        <option value="pubg">PUBG</option>
+                        <option value="apex">Apex Legends</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">İlan Oluştur</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Messages Modal - WhatsApp Style -->
+    <div id="messagesModal" class="modal">
+        <div class="modal-content messages-modal-content">
+            <button class="modal-close" onclick="closeModal('messagesModal')" style="position: absolute; top: 1rem; right: 1rem; z-index: 10;">&times;</button>
+            
+            <!-- Chat Sidebar -->
+            <div class="chat-sidebar" id="chatSidebar">
+                <div class="chat-header">
+                    <h3>Mesajlaşma</h3>
+                    <input type="text" id="chatSearch" class="chat-search" placeholder="Kişi ara...">
+                </div>
+                <div class="chat-list" id="chatList">
+                    <div class="empty-chat-list">
+                        <p>Henüz mesajlaşma yok</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #6b7280;">Bir ilanın "💬" butonuna tıklayarak mesajlaşma başlatın</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Main Area -->
+            <div class="chat-main" id="chatMain">
+                <div class="no-chat-selected" id="noChatSelected">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
+                    <div>
+                        <h4>Mesajlaşma</h4>
+                        <p>Sol taraftan bir kişi seçerek mesajlaşmaya başlayın</p>
+                    </div>
+                </div>
+                
+                <div class="hidden" id="chatArea">
+                    <div class="chat-main-header">
+                        <div class="chat-avatar">
+                            <span id="chatContactInitial">A</span>
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div>
+                            <h4 id="chatContactName">İletişim</h4>
+                            <span style="font-size: 0.8rem; color: #9ca3af;">Çevrimiçi</span>
+                        </div>
+                        <button id="backToChats" class="btn btn-outline hidden" style="margin-left: auto; padding: 0.5rem 1rem;">← Geri</button>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be dynamically added here -->
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Mesajınızı yazın..." maxlength="500">
+                        <button id="sendMessageBtn" class="chat-send-btn">
+                            <span style="transform: rotate(-45deg);">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentUser = null;
+        let isLoginMode = true;
+        let conversations = {}; // Store messages by contact ID
+        let activeContactId = null;
+        let contacts = []; // List of people to chat with
+        
+        // Mock data
+        const mockUsers = [
+            {
+                id: '1',
+                name: 'Demo Kullanıcı',
+                username: 'demouser',
+                email: 'demo@demo.com',
+                password: '123456',
+                balance: 0
+            }
+        ];
+
+        const mockListings = [
+            {
+                id: '1',
+                title: 'Premium Valorant Hesabı',
+                description: '100+ skin içeren özel hesap, tüm agentler açık. Çok nadir skinler mevcut!',
+                price: 299.99,
+                game_type: 'valorant',
+                seller_id: '1',
+                seller_name: 'Demo Kullanıcı',
+                image_url: 'https://images.unsplash.com/photo-1534423861386-85a16f5d13fd'
+            }
+        ];
+
+        // Utility functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            if (modalId === 'messagesModal') {
+                activeContactId = null;
+                updateChatUI();
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 2rem;
+                right: 2rem;
+                background: ${type === 'success' ? '#10b981' : '#ef4444'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                font-weight: 600;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function updateUI() {
+            const guestButtons = document.getElementById('guestButtons');
+            const userButtons = document.getElementById('userButtons');
+            const messagesBtn = document.getElementById('messagesBtn');
+            const revokzsShopBtn = document.getElementById('revokzsShopBtn');
+            
+            if (currentUser) {
+                guestButtons.classList.add('hidden');
+                userButtons.classList.remove('hidden');
+                messagesBtn.classList.remove('hidden');
+                revokzsShopBtn.classList.remove('hidden');
+                
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+                
+                updateListingButtons();
+            } else {
+                guestButtons.classList.remove('hidden');
+                userButtons.classList.add('hidden');
+                messagesBtn.classList.add('hidden');
+                revokzsShopBtn.classList.add('hidden');
+            }
+        }
+
+        function updateListingButtons() {
+            const listings = document.querySelectorAll('.listing-card');
+            const sellerNames = ['ProGamerTR', 'SkinMaster', 'GameLord', 'FortniteKing', 'PUBGPro', 'ApexLegend'];
+            
+            listings.forEach((card, index) => {
+                const actions = card.querySelector('.listing-actions');
+                if (currentUser) {
+                    actions.innerHTML = `
+                        <button class="btn btn-green btn-small" onclick="buyListing(${index})">💳 Satın Al</button>
+                        <button class="btn btn-outline btn-small btn-icon" onclick="startChatWith('${index}', '${sellerNames[index]}')">💬</button>
+                    `;
+                } else {
+                    actions.innerHTML = `
+                        <button class="btn btn-primary btn-small" onclick="openModal('authModal')">Giriş Yap</button>
+                    `;
+                }
+            });
+        }
+
+        function switchAuthMode() {
+            isLoginMode = !isLoginMode;
+            const title = document.getElementById('authModalTitle');
+            const registerFields = document.getElementById('registerFields');
+            const submitBtn = document.querySelector('#authForm button[type="submit"]');
+            const switchBtn = document.getElementById('switchAuthMode');
+            
+            if (isLoginMode) {
+                title.textContent = 'Giriş Yap';
+                registerFields.classList.add('hidden');
+                submitBtn.textContent = 'Giriş Yap';
+                switchBtn.textContent = 'Hesabın yok mu? Kayıt ol';
+            } else {
+                title.textContent = 'Kayıt Ol';
+                registerFields.classList.remove('hidden');
+                submitBtn.textContent = 'Kayıt Ol';
+                switchBtn.textContent = 'Hesabın var mı? Giriş yap';
+            }
+        }
+
+        function handleAuth(e) {
+            e.preventDefault();
+            
+            if (isLoginMode) {
+                const login = document.getElementById('loginInput').value;
+                const password = document.getElementById('passwordInput').value;
+                
+                const user = mockUsers.find(u => 
+                    (u.email === login || u.username === login) && u.password === password
+                );
+                
+                if (user) {
+                    currentUser = user;
+                    updateUI();
+                    closeModal('authModal');
+                    showToast('Başarıyla giriş yaptınız!');
+                } else {
+                    showToast('Yanlış email/kullanıcı adı veya şifre', 'error');
+                }
+            } else {
+                const name = document.getElementById('nameInput').value;
+                const username = document.getElementById('usernameInput').value;
+                const email = document.getElementById('emailInput').value;
+                const password = document.getElementById('passwordInput').value;
+                
+                const existingUser = mockUsers.find(u => u.email === email || u.username === username);
+                if (existingUser) {
+                    showToast('Bu email veya kullanıcı adı zaten kullanılıyor', 'error');
+                    return;
+                }
+                
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    username,
+                    email,
+                    password,
+                    balance: 0
+                };
+                
+                mockUsers.push(newUser);
+                showToast('Başarıyla kayıt oldunuz! Giriş yapabilirsiniz.');
+                
+                // Switch to login mode and pre-fill email
+                isLoginMode = true;
+                switchAuthMode();
+                document.getElementById('loginInput').value = email;
+            }
+        }
+
+        // Chat Functions
+        function startChatWith(listingIndex, sellerName) {
+            if (!currentUser) {
+                openModal('authModal');
+                return;
+            }
+
+            const contactId = `seller_${listingIndex}`;
+            
+            // Add contact if not exists
+            if (!contacts.find(c => c.id === contactId)) {
+                contacts.push({
+                    id: contactId,
+                    name: sellerName,
+                    initial: sellerName.charAt(0).toUpperCase(),
+                    lastMessage: '',
+                    timestamp: new Date()
+                });
+                
+                // Initialize conversation
+                if (!conversations[contactId]) {
+                    conversations[contactId] = [];
+                }
+            }
+            
+            // Open messages modal and select this contact
+            openModal('messagesModal');
+            selectContact(contactId);
+            updateChatList();
+        }
+
+        function selectContact(contactId) {
+            activeContactId = contactId;
+            const contact = contacts.find(c => c.id === contactId);
+            
+            if (contact) {
+                document.getElementById('chatContactName').textContent = contact.name;
+                document.getElementById('chatContactInitial').textContent = contact.initial;
+                updateChatUI();
+                loadMessages(contactId);
+            }
+        }
+
+        function updateChatList() {
+            const chatList = document.getElementById('chatList');
+            
+            if (contacts.length === 0) {
+                chatList.innerHTML = `
+                    <div class="empty-chat-list">
+                        <p>Henüz mesajlaşma yok</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #6b7280;">Bir ilanın "💬" butonuna tıklayarak mesajlaşma başlatın</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            chatList.innerHTML = contacts.map(contact => `
+                <div class="chat-item ${activeContactId === contact.id ? 'active' : ''}" onclick="selectContact('${contact.id}')">
+                    <div class="chat-avatar">
+                        <span>${contact.initial}</span>
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">${contact.name}</div>
+                        <div class="chat-last-message">${contact.lastMessage || 'Mesajlaşma başlatın'}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateChatUI() {
+            const noChatSelected = document.getElementById('noChatSelected');
+            const chatArea = document.getElementById('chatArea');
+            
+            if (activeContactId) {
+                noChatSelected.classList.add('hidden');
+                chatArea.classList.remove('hidden');
+            } else {
+                noChatSelected.classList.remove('hidden');
+                chatArea.classList.add('hidden');
+            }
+        }
+
+        function loadMessages(contactId) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messages = conversations[contactId] || [];
+            
+            if (messages.length === 0) {
+                chatMessages.innerHTML = `
+                    <div style="text-align: center; color: #9ca3af; padding: 2rem;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">👋</div>
+                        <p>Konuşma başlatmak için bir mesaj yazın</p>
+                    </div>
+                `;
+            } else {
+                chatMessages.innerHTML = messages.map(msg => `
+                    <div class="message ${msg.sender === currentUser?.id ? 'sent' : 'received'}">
+                        <div>${msg.text}</div>
+                        <div class="message-time">${formatTime(msg.timestamp)}</div>
+                    </div>
+                `).join('');
+            }
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            if (!activeContactId || !currentUser) return;
+            
+            const chatInput = document.getElementById('chatInput');
+            const messageText = chatInput.value.trim();
+            
+            if (!messageText) return;
+            
+            // Add user message
+            const userMessage = {
+                id: Date.now(),
+                sender: currentUser.id,
+                text: messageText,
+                timestamp: new Date()
+            };
+            
+            if (!conversations[activeContactId]) {
+                conversations[activeContactId] = [];
+            }
+            
+            conversations[activeContactId].push(userMessage);
+            
+            // Update last message for contact
+            const contact = contacts.find(c => c.id === activeContactId);
+            if (contact) {
+                contact.lastMessage = messageText.length > 30 ? messageText.substring(0, 30) + '...' : messageText;
+                contact.timestamp = new Date();
+            }
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Reload messages
+            loadMessages(activeContactId);
+            updateChatList();
+            
+            // Simulate seller response
+            setTimeout(() => {
+                const responses = [
+                    'Merhaba! İlan hakkında detaylı bilgi verebilirim.',
+                    'Hesap tamamen temiz ve güvenlidir.',
+                    'Satın alma işlemi için bakiyenizi kontrol edin.',
+                    'Sorularınızı cevaplayabilirim.',
+                    'İlgilendiğiniz için teşekkürler!',
+                    'Bu hesap çok nadir skinlere sahip.',
+                    'Güvenli ödeme yöntemleri kabul ediyoruz.'
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                const sellerMessage = {
+                    id: Date.now() + 1,
+                    sender: activeContactId,
+                    text: randomResponse,
+                    timestamp: new Date()
+                };
+                
+                conversations[activeContactId].push(sellerMessage);
+                
+                // Update last message
+                if (contact) {
+                    contact.lastMessage = randomResponse.length > 30 ? randomResponse.substring(0, 30) + '...' : randomResponse;
+                    contact.timestamp = new Date();
+                }
+                
+                loadMessages(activeContactId);
+                updateChatList();
+            }, 1000 + Math.random() * 2000);
+            
+            showToast('Mesaj gönderildi!');
+        }
+
+        function formatTime(date) {
+            return date.toLocaleTimeString('tr-TR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+        }
+
+        // Other functions (balance, listing, etc.)
+        function handleBalanceLoad(e) {
+            e.preventDefault();
+            
+            const amount = parseFloat(document.getElementById('amountInput').value);
+            const paymentMethod = document.getElementById('paymentMethodSelect').value;
+            
+            if (amount < 10) {
+                showToast('Minimum 10 TL yükleyebilirsiniz', 'error');
+                return;
+            }
+            
+            if (!paymentMethod) {
+                showToast('Ödeme yöntemini seçiniz', 'error');
+                return;
+            }
+            
+            document.getElementById('paymentAmount').textContent = amount + ' TL';
+            document.getElementById('paymentMethodName').textContent = paymentMethod;
+            
+            closeModal('balanceModal');
+            openModal('paymentModal');
+        }
+
+        function handlePayment(e) {
+            e.preventDefault();
+            
+            const amount = parseFloat(document.getElementById('paymentAmount').textContent);
+            
+            // Mock payment processing
+            currentUser.balance += amount;
+            updateUI();
+            
+            closeModal('paymentModal');
+            showToast(`${amount} TL başarıyla yüklendi!`);
+            
+            // Reset forms
+            document.getElementById('balanceForm').reset();
+            document.getElementById('paymentForm').reset();
+        }
+
+        function handleCreateListing(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('listingTitleInput').value;
+            const description = document.getElementById('listingDescriptionInput').value;
+            const price = parseFloat(document.getElementById('listingPriceInput').value);
+            const imageUrl = document.getElementById('listingImageInput').value;
+            const gameType = document.getElementById('gameTypeSelect').value;
+            
+            if (price < 10) {
+                showToast('Minimum fiyat 10 TL olmalıdır', 'error');
+                return;
+            }
+            
+            // Add new listing to the grid
+            const listingsGrid = document.getElementById('listingsGrid');
+            const listingCard = document.createElement('div');
+            listingCard.className = 'listing-card';
+            listingCard.innerHTML = `
+                <div class="listing-image">
+                    <img src="${imageUrl || 'https://images.unsplash.com/photo-1593305841991-05c297ba4575'}" alt="${title}">
+                    <div class="listing-badge">${gameType.toUpperCase()}</div>
+                </div>
+                <div class="listing-content">
+                    <h3 class="listing-title">${title}</h3>
+                    <p class="listing-description">${description}</p>
+                    <div class="listing-details">
+                        <div class="listing-price">${price} TL</div>
+                        <div class="listing-game">${gameType}</div>
+                    </div>
+                    <div class="listing-actions">
+                        <button class="btn btn-outline btn-small" onclick="deleteListing(this)">🗑️ İlan Sil</button>
+                    </div>
+                </div>
+            `;
+            
+            listingsGrid.appendChild(listingCard);
+            
+            closeModal('createListingModal');
+            showToast('İlan başarıyla oluşturuldu!');
+            document.getElementById('createListingForm').reset();
+        }
+
+        function buyListing(index) {
+            if (!currentUser) {
+                openModal('authModal');
+                return;
+            }
+            
+            const prices = [299.99, 599.99, 189.99, 149.99, 79.99, 249.99];
+            const price = prices[index] || 100;
+            
+            if (currentUser.balance < price) {
+                showToast('Yetersiz bakiye', 'error');
+                return;
+            }
+            
+            currentUser.balance -= price;
+            updateUI();
+            showToast('İlan başarıyla satın alındı!');
+        }
+
+        function deleteListing(button) {
+            const card = button.closest('.listing-card');
+            card.remove();
+            showToast('İlan silindi!');
+        }
+
+        function logout() {
+            currentUser = null;
+            conversations = {};
+            contacts = [];
+            activeContactId = null;
+            updateUI();
+            showToast('Başarıyla çıkış yaptınız');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auth buttons
+            document.getElementById('loginBtn').addEventListener('click', () => {
+                isLoginMode = true;
+                switchAuthMode();
+                openModal('authModal');
+            });
+            
+            document.getElementById('registerBtn').addEventListener('click', () => {
+                isLoginMode = false;
+                switchAuthMode();
+                openModal('authModal');
+            });
+            
+            document.getElementById('heroBtn').addEventListener('click', () => {
+                if (!currentUser) {
+                    openModal('authModal');
+                }
+            });
+            
+            document.getElementById('switchAuthMode').addEventListener('click', switchAuthMode);
+            document.getElementById('authForm').addEventListener('submit', handleAuth);
+            
+            // Balance and payment
+            document.getElementById('balanceBtn').addEventListener('click', () => openModal('balanceModal'));
+            document.getElementById('balanceForm').addEventListener('submit', handleBalanceLoad);
+            document.getElementById('paymentForm').addEventListener('submit', handlePayment);
+            
+            // Listings
+            document.getElementById('createListingBtn').addEventListener('click', () => openModal('createListingModal'));
+            document.getElementById('createListingForm').addEventListener('submit', handleCreateListing);
+            
+            // Messages
+            document.getElementById('messagesBtn').addEventListener('click', () => {
+                openModal('messagesModal');
+                updateChatList();
+                updateChatUI();
+            });
+            
+            document.getElementById('sendMessageBtn').addEventListener('click', sendMessage);
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Mobile back button
+            document.getElementById('backToChats').addEventListener('click', () => {
+                document.getElementById('chatSidebar').classList.add('mobile-show');
+                document.getElementById('chatMain').classList.remove('mobile-show');
+            });
+            
+            // Logout
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            
+            // Chat search
+            document.getElementById('chatSearch').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const chatItems = document.querySelectorAll('.chat-item');
+                
+                chatItems.forEach(item => {
+                    const name = item.querySelector('.chat-name').textContent.toLowerCase();
+                    if (name.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Initial UI update
+            updateUI();
+            
+            // Close modals on outside click
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            // Mobile responsiveness for chat
+            const mediaQuery = window.matchMedia('(max-width: 768px)');
+            function handleMobile(e) {
+                if (e.matches) {
+                    // Mobile: Show sidebar by default, hide main
+                    document.getElementById('chatSidebar').classList.add('mobile-show');
+                    document.getElementById('chatMain').classList.remove('mobile-show');
+                    document.getElementById('backToChats').classList.remove('hidden');
+                } else {
+                    // Desktop: Show both
+                    document.getElementById('chatSidebar').classList.remove('mobile-show');
+                    document.getElementById('chatMain').classList.remove('mobile-show');
+                    document.getElementById('backToChats').classList.add('hidden');
+                }
+            }
+            
+            mediaQuery.addListener(handleMobile);
+            handleMobile(mediaQuery);
+        });
+
+        // Add slide-in animation for toasts
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Global function for mobile chat selection
+        window.selectContact = function(contactId) {
+            selectContact(contactId);
+            
+            // On mobile, show chat main and hide sidebar
+            if (window.innerWidth <= 768) {
+                document.getElementById('chatSidebar').classList.remove('mobile-show');
+                document.getElementById('chatMain').classList.add('mobile-show');
+            }
+        };
+    </script>
+</body>
+</html>
